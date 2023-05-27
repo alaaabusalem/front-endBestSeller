@@ -1,0 +1,23 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+	<title>v1033-a-05-c-ai</title>
+	<style>
+		.s0 { fill: none;stroke: #b20b5b;stroke-linecap: round;stroke-linejoin: round;stroke-width: 15 } 
+		.s1 { fill: #ce1465;stroke: #ce1465;stroke-linecap: round;stroke-linejoin: round;stroke-width: 15 } 
+		.s2 { fill: #d85d98;stroke: #e6679e;stroke-linecap: round;stroke-linejoin: round;stroke-width: 15 } 
+		.s3 { fill: #e693b7;stroke: #e693b7;stroke-linecap: round;stroke-linejoin: round;stroke-width: 15 } 
+		.s4 { fill: #e6679e;stroke: #e6679e;stroke-linecap: round;stroke-linejoin: round;stroke-width: 15 } 
+	</style>
+	<g id="Background">
+	</g>
+	<g id="Graphic Elements">
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Path&gt;" class="s0" d="m963.3 648.5c-173.4-67-356.6 49.2-356.6 49.2 0 0-183.2-116.2-356.6-49.2"/>
+			<path id="&lt;Path&gt;" class="s1" d="m963.3 595.1l-100.5-106.4c0 0-44.4-2.7-96.6 9-43 9.7-81.2 34.3-108.6 68.8-31.1 39.4-47.5 72.3-49.9 77.2 14.9-9.1 189.8-112.7 355.6-48.6z"/>
+			<path id="&lt;Path&gt;" class="s2" d="m252.1 595.1l100.5-106.4c0 0 44.5-2.7 96.6 9 43 9.7 81.3 34.3 108.7 68.8 31.1 39.4 47.5 72.3 49.8 77.2-14.8-9.1-189.7-112.7-355.6-48.6z"/>
+			<path id="&lt;Path&gt;" class="s3" d="m484.8 396.6l-143.2 27.4c180.7 39.5 265.1 220.3 265.1 220.3 8.1-166.9-121.9-247.7-121.9-247.7z"/>
+			<path id="&lt;Path&gt;" class="s4" d="m729.3 396.6l143.2 27.4c-180.7 39.5-265.1 220.3-265.1 220.3-8.1-166.9 121.9-247.7 121.9-247.7z"/>
+		</g>
+	</g>
+	<g id="Text">
+	</g>
+</svg>
