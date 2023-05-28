@@ -1,7 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
+
+
 function Category({category}) {
+
+        
     const [Categorys, setCategorys] = useState([]);
+
+    let books
+
+
     const getCategorys = () => {
         const serverURL = `${process.env.REACT_APP_ServerURL}/category-items?list_name_encoded=${category}`;
         axios.get(serverURL)
@@ -13,6 +21,31 @@ function Category({category}) {
                 console.log(error)
             })
     }
+
+    const addToReading = (item) => {
+        const serverURL = `${process.env.REACT_APP_ServerURL}/add-to-reading`;
+        axios.post(serverURL, item)
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+
+            })
+    }
+
+    const addToWish = (item) => {
+        const serverURL = `${process.env.REACT_APP_ServerURL}/add-to-wish`;
+        axios.post(serverURL, item)
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+
+            })
+    }
+
     useEffect(() => {
         getCategorys()
     }, [])
@@ -26,7 +59,10 @@ function Category({category}) {
         <div className="card-body">
           <h4 className="card-title">{item.title}</h4>
           <p className="card-text">{item.description}</p>
-          <p className="card-text">{item.buy_links[0].url}</p>
+          
+            <a className="card-text" href={item.buy_links[0].url}>{item.buy_links[0].name}</a><br/>
+            <a className="card-text" href={item.buy_links[1].url}>{item.buy_links[1].name}</a><br/>
+            <button type="button" className="btn btn-outline-primary" onClick={() => { addToReading(item) }}>Now I' Reading</button>
         </div>
         </div>
         );
