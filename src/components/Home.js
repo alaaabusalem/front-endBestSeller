@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useEffect } from 'react';
 import c1 from '../assets/c1.svg'
 import c2 from '../assets/c2.svg'
