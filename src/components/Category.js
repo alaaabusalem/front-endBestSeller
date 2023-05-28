@@ -44,8 +44,15 @@ function Category({category}) {
     }
 
     const addToWish = (item) => {
+        const object={
+            book_image:item.book_image,
+            title:item.title,
+            author:item.author,
+            description:item.description,
+            buy_links:[item.buy_links[0].url]
+        }
         const serverURL = `${process.env.REACT_APP_ServerURL}/add-to-wish`;
-        axios.post(serverURL, item)
+        axios.post(serverURL, object)
             .then(response => {
                 console.log(response.data)
             })
@@ -65,7 +72,7 @@ function Category({category}) {
       return (
         <div className="card border-danger mb-3" style={{maxWidth:"20rem"}}>
         <div className="card-header">{item.author}</div>
-        <img src={item.book_image} alt="about"/>
+        <img src={item.book_image} alt="about" style={{ width: "100%", height: "350px", objectFit: "cover" }}/>
         <div className="card-body">
           <h4 className="card-title">{item.title}</h4>
           <p className="card-text">{item.description}</p>
@@ -73,6 +80,7 @@ function Category({category}) {
             <a className="card-text" href={item.buy_links[0].url}>{item.buy_links[0].name}</a><br/>
             <a className="card-text" href={item.buy_links[1].url}>{item.buy_links[1].name}</a><br/>
             <button type="button" className="btn btn-outline-primary" onClick={() => { addToReading(item) }}>Now I' Reading</button>
+            <button type="button" className="btn btn-outline-primary" onClick={() =>addToWish(item) }>wish list</button>
         </div>
         </div>
         );
