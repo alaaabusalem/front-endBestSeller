@@ -23,8 +23,17 @@ function Category({category}) {
     }
 
     const addToReading = (item) => {
+        
+        const object={
+            book_image:item.book_image,
+            title:item.title,
+            author:item.author,
+            description:item.description,
+            buy_links:[item.buy_links[0].url]
+        }
+        console.log(object)
         const serverURL = `${process.env.REACT_APP_ServerURL}/add-to-reading`;
-        axios.post(serverURL, item)
+        axios.post(serverURL, object)
             .then(response => {
                 console.log(response.data)
             })
@@ -51,6 +60,7 @@ function Category({category}) {
     }, [])
     return(
         <>
+        <div style={{ margin:50,display: 'flex', flexWrap: 'wrap', gap: '20px',justifyContent: 'center' }}>
          {Categorys.map(item=>{
       return (
         <div className="card border-danger mb-3" style={{maxWidth:"20rem"}}>
@@ -67,6 +77,7 @@ function Category({category}) {
         </div>
         );
      })}
+     </div>
         </>
     )
 }
