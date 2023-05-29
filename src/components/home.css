@@ -1,8 +1,17 @@
+.card:hover {
+  background-color: #4c1263; /* Add your desired hover background color here */
+}
+.card-image {
+  transition: transform 0.3s ease;
+}
 
+.card-image:hover {
+  transform: scale(1.2); /* Add your desired scale value for the hover effect */
+}
 .home-about-section {
   position: relative;
   padding-bottom: 0px !important;
-  padding-top: 1px !important;
+  padding-top: 20px !important;
 	background-image: url("../assets/bg.jpg");
 	background-repeat: no-repeat;
   background-size: cover;
@@ -16,5 +25,5 @@
 .home-about-body {
   padding-top: 10px;
   font-size: 1.2em !important;
-  text-align: center;
+  text-align: cent;
 }
