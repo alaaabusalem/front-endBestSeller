@@ -34,6 +34,9 @@ export default function Navbar() {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/wishlist">Wish List</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/about">About Us</NavLink>
+              </li>
             </ul>
             <form className="d-flex">
               <input className="form-control me-sm-2" type="search" placeholder="Search" />
