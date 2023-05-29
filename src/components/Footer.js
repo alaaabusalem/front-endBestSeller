@@ -23,16 +23,8 @@ const Footer = () => {
     <div class="footer-logo">
       <img src={logo} alt="Company Logo" />
     </div>
-    <div class="footer-links">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-		<div style={{color:"#fff"}}>
+    
+		<div style={{color:"#fff",display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center'}}>
       <span style={{ border: '1px solid silver', borderRadius: '0.25em', padding: '0.5em' }}>
         <FaFacebook title="Facebook" />
       </span>
@@ -48,7 +40,12 @@ const Footer = () => {
       <span style={{ border: '1px solid silver', borderRadius: '0.25em', padding: '0.5em' }}>
         <FaYoutube title="YouTube" />
       </span>
+      
     </div>
+    <div class="footer-bottom">
+    <p>&copy; 2023 Company Name. All Rights Reserved.</p>
+    <p>Terms of Service | Privacy Policy</p>
+  </div>
     <div class="footer-contact" style={{color:"#fff"}}>
       <h3>Contact Us</h3>
       <p>123 Main Street, City</p>
@@ -63,10 +60,7 @@ const Footer = () => {
       </form>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2023 Company Name. All Rights Reserved.</p>
-    <p>Terms of Service | Privacy Policy</p>
-  </div>
+  
 </footer>
 
     </>

@@ -9,7 +9,7 @@ export default function Navbar() {
   };
 
   const navbarStyle = {
-    height: '100px', // Set the desired height
+    maxHeight: '60px', // Set the desired height
     backgroundColor: '#3A1078', 
   };
 
