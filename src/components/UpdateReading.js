@@ -3,10 +3,11 @@ import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import './Updating.css';
 function UpdateReading(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
-        //[props.item.qout]=[`${e.target.qout.value}`];
+        [props.item.qout]=[`${e.target.qout.value}`];
         if (e.target.finished.checked) { [props.item.finsh_reading] = [true] }
         else { [props.item.finsh_reading] = [false]; }
         if (e.target.recommend.checked) { [props.item.recommindation] = [true] }
@@ -28,13 +29,13 @@ function UpdateReading(props) {
     }
     return (
         <>
-            <Modal show={props.showUpdate} onHide={props.handleCloseUpdate}>
-                <Modal.Header closeButton>
+            <Modal show={props.showUpdate} onHide={props.handleCloseUpdate} >
+                <Modal.Header closeButton className='header'>
                     <Modal.Title>{props.item.title}</Modal.Title>
 
                 </Modal.Header>
-                <Modal.Body>
-                    <Image src={props.item.book_image} width='50%' height='50%'></Image>
+                <Modal.Body className='body'>
+                    <Image src={props.item.book_image} className='imgUdate'></Image>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>qout</Form.Label>
@@ -76,10 +77,10 @@ function UpdateReading(props) {
                             />
 
                         </Form.Group>
-                        <Button variant="primary" type="submit" className="btn btn-dark"> update</Button>
-                        <Button variant="secondary" onClick={props.handleCloseUpdate}>
-                            Close
-                        </Button>
+                        <div className='btnContainarUdate continarUpdate'>
+                        <Button variant="primary" type="submit" className=" outline"> update</Button>
+                        <Button variant="secondary" onClick={props.handleCloseUpdate}> Close</Button>
+                        </div>
                     </Form>
                 </Modal.Body>
 

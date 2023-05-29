@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateReading from './UpdateReading';
 import DeleteReading from './DeleteReading';
+import { FaRegThumbsUp, FaRegThumbsDown} from "react-icons/fa";
+import { RiBookmarkFill } from "react-icons/ri";
+
 
 import './reading.css';
 //import { FaGrLike } from 'react-icons/fa';
@@ -30,13 +33,7 @@ export default function Reading() {
 	function handleCloseFlagDelet() {
 		setshowFlagDelet(false);
 	}
-	let arrayForQouts = [];
-	function quotsList(qouts) {
-		qouts.forEach(element => {
-			arrayForQouts.push(<p className="card-text">{element}</p>);
-		});
-		return (<div>{arrayForQouts}</div>)
-	}
+
 	
 	function getTheList() {
 		const serverurl = `${process.env.REACT_APP_ServerURL}/readingnow`;
@@ -59,49 +56,47 @@ export default function Reading() {
 	return (
 		<div className="card-continar" style={{ margin:50,display: 'flex', flexWrap: 'wrap', gap: '20px',justifyContent: 'center'}}>
 		<>
+		
 			{readinglist.map(item => {
                   
 				return (
 <>                     
 					<div className="card border-primary mb-3 card" style={{ maxWidth: "20rem" }} key={item.id}>
-						<div className="card-header title">{item.title}</div>
+						<div className="card-header title text-color">{item.title}</div>
 						<div className="card-body">
 							<img className="img" src={item.book_image} alt="book cover image"/>
+							
 							<div className="continar pad-top">
-							<p>qouts</p>
+								<p>Finshing Reading</p>
 							{
-								item.qouts === null ? <p>No</p>
+								item.finsh_reading ? <span className="text-color">Yes</span>
+									: <span className="text-color"> No</span>
+
+							}
+							</div>
+							<div className="continar">
+							<p >Recommend This Book?</p>
+							{
+								item.recommindation ? <span className="thumb text-color"> <FaRegThumbsUp /></span>
+                               :
+							   <span className="thumb text-color"> <FaRegThumbsDown /></span>	
+
+							}
+							</div>
+							
+							<div className="continar">
+							<p >Book Mark</p>
+							<p >{item.book_mark}<span className="spanBookMark text-color"><RiBookmarkFill/></span></p>
+							
+							</div>
+							<div className="continar">
+							<p>Opinion</p>
+							{
+								item.opinion === null ? <p className='text-color'>No</p>
 									:
-									<div>{quotsList(item.qouts)}</div>
+									<div className='text-color'>{item.opinion}</div>
 							}
                             </div>
-							<div className="continar">
-								<p>finsh reading?</p>
-							{
-								item.finsh_reading ? <span style={{ backgroundColor: "green" }}>Yes</span>
-									: <span style={{ backgroundColor: "red" }}> No</span>
-
-							}
-							</div>
-							<div className="continar">
-							<p >Recommend this Book?</p>
-							{
-								// item.recommindation ? <span style={{ backgroundColor: "green" }}>yes</span>:
-								// <span>
-                                // <FaGrLike title="GrLike" />
-                                // </span>
-									
-
-							}
-							</div>
-							<div className="continar">
-							<p >Your opinion about this book</p>
-							<p >{item.opinion}</p>
-							</div>
-							<div className="continar">
-							<p >book mark</p>
-							<p >{item.book_mark}</p>
-							</div>
 							<div className="continar btn-containar">
 							<button type="button" className="btn btn-outline-primary" onClick={() => { handleshowUpdate(item) }}>Update</button>
 							<button type="button" className="btn btn-outline-danger" onClick={() => { handleshowDelet(item) }}>Delete</button>
