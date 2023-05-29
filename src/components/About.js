@@ -1,9 +1,11 @@
+import "./About.css";
+
 function About() {
 
     return (
         <>
-            <h2><strong>Book Library</strong></h2> <br />
-            <p>Welcome to <strong>(Book Library)</strong> - your gateway to the world of reading!
+            <h1><strong>Book Library</strong></h1> <br />
+            <p>Welcome to <b>(Book Library)</b> - your gateway to the world of reading!
             </p>
 
             <p>At (Book library), we believe books have the power to transport us to different worlds,
@@ -33,7 +35,7 @@ function About() {
                 Let (Book Library) be your trusted companion as you unravel stories, expand your horizons, and embark on endless adventures.
             </p>
 
-            <h3 className="text-warning">Who we are</h3>
+            <p className="text-warning"><b>Who we are ?</b></p>
             <p>
                 We are a team of four programmers who are able to build websites that contain beautiful and creative ideas.
             </p>
