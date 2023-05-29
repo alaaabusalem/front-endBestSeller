@@ -7,7 +7,7 @@ import logo from '../assets/logo.svg'
 const Footer = () => {
   return (
     <>
-      <Wave mask="url(#mask)" fill="#653c8f">
+      <Wave mask="url(#mask)" fill="">
         <defs>
           <linearGradient id="gradient" gradientTransform="rotate(90)">
             <stop offset="0" stopColor="white" />
@@ -32,7 +32,7 @@ const Footer = () => {
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
-		<div>
+		<div style={{color:"#fff"}}>
       <span style={{ border: '1px solid silver', borderRadius: '0.25em', padding: '0.5em' }}>
         <FaFacebook title="Facebook" />
       </span>
@@ -49,13 +49,13 @@ const Footer = () => {
         <FaYoutube title="YouTube" />
       </span>
     </div>
-    <div class="footer-contact">
+    <div class="footer-contact" style={{color:"#fff"}}>
       <h3>Contact Us</h3>
       <p>123 Main Street, City</p>
       <p>Phone: 123-456-7890</p>
       <p>Email: info@example.com</p>
     </div>
-    <div class="footer-subscribe">
+    <div class="footer-subscribe" style={{color:"#fff"}}>
       <h3>Subscribe to Our Newsletter</h3>
       <form action="#" method="post">
         <input type="email" name="email" placeholder="Enter your email" />

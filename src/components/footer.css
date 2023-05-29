@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #0a0a0a;
+  background-color: #3795BD;
 }
 
 /* Footer logo */
@@ -27,7 +27,7 @@
 
 .footer-links ul li a {
   text-decoration: none;
-  color: #5af5a7;
+  color: #eff6f2;
 }
 
 /* Footer social icons */
@@ -43,19 +43,19 @@
 }
 
 .footer-social ul li a {
-  color: #333;
+  color: #fffbfb;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #653c8f;
+  background-color: #3795BD;
   transition: background-color 0.3s ease;
 }
 
 .footer-social ul li a i {
-  color: #171616;
+  color: #f9f9f9;
 }
 
 .footer-social ul li a:hover {
@@ -100,8 +100,8 @@
 
 .footer-subscribe button {
   padding: 5px 10px;
-  background-color: #653c8f;
-  color: #0d0c0c;
+  background-color: #3795BD;
+  color: #f6f3f3;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -111,9 +111,9 @@
 .footer-bottom {
   text-align: center;
   padding: 10px;
-  background-color: #100f0f;
+  background-color: #3795BD;
   font-size: 12px;
-  color: #777;
+  color: #f7f3f3;
 }
 
 .footer-bottom p {

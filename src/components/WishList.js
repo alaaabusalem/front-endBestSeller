@@ -69,8 +69,8 @@ const [WishList,setWishList]=useState([]);
           <h1 className="card-title">{item.title}</h1>
           <p className="card-text">{item.descrip}</p>
 		 <div>
-		 <button type="button" className="btn btn-primary" onClick={() => { deleteFromWish(item.id) }}>Delete</button>
-		 <button type="button" className="btn btn-primary" onClick={() => { addToReading(item) }}>Add to Reading List</button>
+		 <button type="button" className="btn btn-outline-primary" onClick={() => { deleteFromWish(item.id) }}>Delete</button>
+		 <button type="button" className="btn btn-outline-primary" onClick={() => { addToReading(item) }}>Add to Reading List</button>
          
 		 </div>
 		  

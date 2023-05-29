@@ -10,6 +10,7 @@ export default function Navbar() {
 
   const navbarStyle = {
     height: '100px', // Set the desired height
+    backgroundColor: '#3A1078', 
   };
 
   return (
@@ -28,7 +29,7 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/reading">What I'm Reading Now</NavLink>
+                <NavLink className="nav-link" to="/reading">Reading Now</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/wishlist">Wish List</NavLink>
