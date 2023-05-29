@@ -4,11 +4,13 @@ import Category from './components/Category'
 import Reading from './components/Reading'
 import WishList from './components/WishList'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer';
 
 
 function App() {
   return (
     <>
+    <div>
     <Navbar />
     <Routes>
       <Route path='/' element={<Home/>}></Route>
@@ -16,6 +18,8 @@ function App() {
       <Route path='/category' element={<Category/>}></Route>
       <Route path='/wishlist' element={<WishList/>}></Route>
     </Routes>
+    <Footer />
+    </div>
     </>
   );
 }
