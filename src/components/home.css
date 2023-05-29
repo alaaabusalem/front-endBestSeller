@@ -1,4 +1,13 @@
+.card:hover {
+  background-color: #4c1263; /* Add your desired hover background color here */
+}
+.card-image {
+  transition: transform 0.3s ease;
+}
 
+.card-image:hover {
+  transform: scale(1.2); /* Add your desired scale value for the hover effect */
+}
 .home-about-section {
   position: relative;
   padding-bottom: 0px !important;
