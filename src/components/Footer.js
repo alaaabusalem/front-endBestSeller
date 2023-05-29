@@ -43,14 +43,14 @@ const Footer = () => {
       
     </div>
     <div class="footer-bottom">
-    <p>&copy; 2023 Company Name. All Rights Reserved.</p>
+    <p>&copy; 2023 Book Library. All Rights Reserved.</p>
     <p>Terms of Service | Privacy Policy</p>
   </div>
     <div class="footer-contact" style={{color:"#fff"}}>
       <h3>Contact Us</h3>
-      <p>123 Main Street, City</p>
-      <p>Phone: 123-456-7890</p>
-      <p>Email: info@example.com</p>
+      <p>Jordan, Amman</p>
+      <p>Phone: +962 999999999</p>
+      <p>Email: xxxxx@gmail.com</p>
     </div>
     <div class="footer-subscribe" style={{color:"#fff"}}>
       <h3>Subscribe to Our Newsletter</h3>
