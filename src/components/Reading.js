@@ -3,6 +3,8 @@ import axios from 'axios';
 import UpdateReading from './UpdateReading';
 import DeleteReading from './DeleteReading';
 
+import './reading.css';
+//import { FaGrLike } from 'react-icons/fa';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Reading() {
@@ -55,41 +57,55 @@ export default function Reading() {
 	}, []);
 
 	return (
-		<div style={{ margin:50,display: 'flex', flexWrap: 'wrap', gap: '20px',justifyContent: 'center'}}>
+		<div className="card-continar" style={{ margin:50,display: 'flex', flexWrap: 'wrap', gap: '20px',justifyContent: 'center'}}>
 		<>
 			{readinglist.map(item => {
                   
 				return (
 <>                     
-					<div className="card border-primary mb-3" style={{ maxWidth: "20rem" }} key={item.id}>
-						<div className="card-header">{item.title}</div>
+					<div className="card border-primary mb-3 card" style={{ maxWidth: "20rem" }} key={item.id}>
+						<div className="card-header title">{item.title}</div>
 						<div className="card-body">
-							<img src={item.book_image} alt="book cover image" style={{ width: "100%", height: "350px", objectFit: "cover" }}/>
-							<p className="text-secondary">qouts I liked from this book</p>
+							<img className="img" src={item.book_image} alt="book cover image"/>
+							<div className="continar pad-top">
+							<p>qouts</p>
 							{
-								item.qouts === null ? <p className="text-info"> There is No qouts addedd yet</p>
+								item.qouts === null ? <p>No</p>
 									:
 									<div>{quotsList(item.qouts)}</div>
 							}
-
+                            </div>
+							<div className="continar">
+								<p>finsh reading?</p>
 							{
-								item.finsh_reading ? <span style={{ backgroundColor: "green" }}>finshed reading</span>
-									: <span style={{ backgroundColor: "red" }}> Not finshing reading</span>
-
-							}
-							<p className="text-secondary">Recommend this Book?</p>
-							{
-								item.recommindation ? <span style={{ backgroundColor: "green" }}>yes</span>
+								item.finsh_reading ? <span style={{ backgroundColor: "green" }}>Yes</span>
 									: <span style={{ backgroundColor: "red" }}> No</span>
 
 							}
-							<p className="text-secondary">Your opinion about this book</p>
-							<p className="text-info">{item.opinion}</p>
-							<p className="text-secondary">book mark</p>
-							<p className="text-info">{item.book_mark}</p>
+							</div>
+							<div className="continar">
+							<p >Recommend this Book?</p>
+							{
+								// item.recommindation ? <span style={{ backgroundColor: "green" }}>yes</span>:
+								// <span>
+                                // <FaGrLike title="GrLike" />
+                                // </span>
+									
+
+							}
+							</div>
+							<div className="continar">
+							<p >Your opinion about this book</p>
+							<p >{item.opinion}</p>
+							</div>
+							<div className="continar">
+							<p >book mark</p>
+							<p >{item.book_mark}</p>
+							</div>
+							<div className="continar btn-containar">
 							<button type="button" className="btn btn-outline-primary" onClick={() => { handleshowUpdate(item) }}>Update</button>
 							<button type="button" className="btn btn-outline-danger" onClick={() => { handleshowDelet(item) }}>Delete</button>
-	
+	                         </div>
 						</div>
 
 					</div>
