@@ -39,10 +39,19 @@ export default function Home() {
 			
 			}
 		return (
-      <div onClick={() => handelClick()} className={`card ${borderClass} mb-3`} style={{ width: '300px' }}>
+      <div
+  onClick={() => handelClick()}
+  className={`card ${borderClass} mb-3 hover-card`}
+  style={{
+    width: '300px',
+    cursor: 'pointer',
+   
+    
+  }}
+>
       <div className="card-header" style={{textAlign:"center"}}>{title}</div>
       <div className="card-body" style={{ display: 'flex', justifyContent: 'center' }}>
-        <img src={image} alt="book logo" style={logoStyle} />
+        <img src={image} alt="book logo" style={{ ...logoStyle, ...{ transition: 'transform 0.3s ease' } }} className="card-image"/>
       </div>
     </div>
     
