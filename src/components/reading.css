@@ -3,6 +3,7 @@
     justify-content: space-around;
     align-content: space-around;
     font-size: 15px;
+    
 }
 .card{
     width: 270px;
@@ -16,10 +17,12 @@
 .title{
     height: 70px;
     text-align: center;
-    color: white;
+    
+    padding-top: 10px;
+    font-weight: bold;
 }
 .pad-top{
-    padding: 15px;
+    padding-top: 15px;
 }
 .img{
     width:100%;
@@ -29,4 +32,23 @@
 .btn-containar{
    padding-left: 10px;
    padding-right: 10px;
+}
+
+.thumb{
+    color:#C4B0FF;
+    font-size: 20px;
+    align-content: center;
+}
+.spanBookMark{
+    padding-left: 10px;
+    color:#C4B0FF;
+    font-size: 20px;
+}
+.opinonAndQuots{
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}
+.text-color{
+    color: wheat;
 }

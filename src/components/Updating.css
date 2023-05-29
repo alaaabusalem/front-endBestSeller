@@ -1,0 +1,35 @@
+.main{
+    background-color: #4942E4;
+    box-shadow: 0 0;
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: space-evenly;
+    background-color: #526D82;
+
+}
+.imgUdate{
+    width:250px;
+    height:250px ;
+   text-align: center;
+   position: center;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: space-evenly;
+    background-color: #526D82;
+}
+
+.btnContainarUdate{
+    padding-left: 50px;
+    padding-right: 50px;
+ }
+ .continarUpdate{
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+}

@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 //import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
-
+import './DeleteReading.css'
 function DeleteReading(props) {
     const handelSubmit = (e) => {
         e.preventDefault();
@@ -31,14 +31,16 @@ function DeleteReading(props) {
 
                     <Form onSubmit={handelSubmit}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>`Are you sure that you want to delete {props.item.title} Book??`</Form.Label>
+                            <Form.Label>Are you sure that you want to delete <span className='spanDelete'>{props.item.title}</span> Book?</Form.Label>
 
-                        </Form.Group>
-                        <Button variant="primary" type="submit" className="btn btn-dark">     Yes
+                        </Form.Group >
+                        <div className='continarDelete'>
+                        <Button variant="primary" type="submit" className="btn btn-dark btnContainarDelete">     Yes
                         </Button>
-                        <Button variant="secondary" onClick={props.handleCloseFlagDelet}>
+                        <Button variant="secondary btnContainarDelete" onClick={props.handleCloseFlagDelet}>
                             No
                         </Button>
+                        </div>
                     </Form>
                 </Modal.Body>
 
