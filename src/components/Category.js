@@ -1,26 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 
-
-function Category({category}) {
-
+function Category() {
+    const { content } = useParams();
         
     const [Categorys, setCategorys] = useState([]);
 
-    let books
+   
 
 
-    const getCategorys = () => {
-        const serverURL = `${process.env.REACT_APP_ServerURL}/category-items?list_name_encoded=${category}`;
-        axios.get(serverURL)
-            .then(response => {
-                console.log(response.data)
-                setCategorys(response.data)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+    const getCategorys = async () => {
+        try {
+          const serverURL = `${process.env.REACT_APP_ServerURL}/category-items?list_name_encoded=${content}`;
+          const response = await axios.get(serverURL);
+          console.log(response.data);
+          setCategorys(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
     const addToReading = (item) => {
         
