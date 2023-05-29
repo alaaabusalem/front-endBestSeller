@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.svg';
+import { useState } from 'react';
 
 export default function Navbar() {
   const logoStyle = {
@@ -10,7 +11,16 @@ export default function Navbar() {
 
   const navbarStyle = {
     maxHeight: '60px', // Set the desired height
-    backgroundColor: '#3A1078', 
+    backgroundColor: '#3A1078',
+  };
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    
+    navigate(`/search/${searchTerm}`);
   };
 
   return (
@@ -24,23 +34,38 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <NavLink className="nav-link active" to="/">Home
+                <NavLink className="nav-link active" to="/">
+                  Home
                   <span className="visually-hidden">(current)</span>
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/reading">Reading Now</NavLink>
+                <NavLink className="nav-link" to="/reading">
+                  Reading Now
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/wishlist">Wish List</NavLink>
+                <NavLink className="nav-link" to="/wishlist">
+                  Wish List
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/about">About Us</NavLink>
+                <NavLink className="nav-link" to="/about">
+                  About
+                </NavLink>
               </li>
             </ul>
-            <form className="d-flex">
-              <input className="form-control me-sm-2" type="search" placeholder="Search" />
-              <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <form className="d-flex" onSubmit={handleSearch}>
+              <input
+                className="form-control me-sm-2"
+                type="search"
+                placeholder="Search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button className="btn btn-secondary my-2 my-sm-0" type="submit">
+                Search
+              </button>
             </form>
           </div>
         </div>
