@@ -6,7 +6,6 @@ export default function WishList() {
 const [WishList,setWishList]=useState([]);
     function getTheList() {
         const serverurl = `${process.env.REACT_APP_ServerURL}/wishlist`;
-		//const serverurl = `https://project-0mbl.onrender.com/category-items?list_name_encoded=hardcover-fiction`;
         axios(serverurl)
             .then(result => {
                 console.log(result.data);
@@ -32,26 +31,43 @@ const [WishList,setWishList]=useState([]);
             })
     }
     const addToReading = (item) => {
-        
-        const object={
-            book_image:item.book_image,
-            title:item.title,
-            author:item.author,
-            description:item.description,
-            buy_links:[item.buy_links[0].url]
-        }
-        console.log(object)
-        const serverURL = `${process.env.REACT_APP_ServerURL}/add-to-reading`;
-        axios.post(serverURL, object)
+    const object = {
+      book_image: item.book_image,
+      title: item.title,
+      author: item.author,
+      description: item.description,
+      buy_links: [item.buy_links[0].url]
+    };
+    console.log(object);
+
+    // Check if the book already exists in the reading list
+    const serverURL = `${process.env.REACT_APP_ServerURL}/readingnow`;
+    axios.get(serverURL)
+      .then(response => {
+        const readingList = response.data;
+        const bookExists = readingList.some(book => book.title === item.title);
+
+        if (bookExists) {
+          console.log("Book already exists in the reading list.");
+        } else {
+          const addToReadingURL = `${process.env.REACT_APP_ServerURL}/add-to-reading`;
+          axios.post(addToReadingURL, object)
             .then(response => {
-                console.log(response.data)
+              console.log(response.data);
             })
             .catch(error => {
-                console.log(error)
+              console.log(error);
+            });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
-            })
-    }
 
+
+  
     useEffect(() => {
         getTheList()
     }, []);
@@ -59,26 +75,24 @@ const [WishList,setWishList]=useState([]);
 	
     return (
         <>
-		<div style={{ margin:50,display: 'flex', flexWrap: 'wrap', gap: '20px',justifyContent: 'center' }}>
-		{WishList.map(item=>{
-      return (
-        <div className="card border-primary mb-3" style={{maxWidth:"20rem"}}>
-        <div className="card-header">{item.author}</div>
-		<img src={item.book_image} alt={item.title} style={{ width: "100%", height: "400px", objectFit: "cover" }} />
-        <div className="card-body">
-          <h1 className="card-title">{item.title}</h1>
+<div style={{ margin: 50, display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+  {WishList.map(item => {
+    return (
+      <div className="card border-primary mb-3" style={{ maxWidth: "20rem" }}>
+        <div className="card-header" style={{ textAlign: 'center', height: 70 }}>{item.author}</div>
+        <img src={item.book_image} alt={item.title} style={{ width: "100%", height: "400px", objectFit: "cover" }} />
+        <div className="card-body" style={{ display: 'flex', flexDirection: 'column' }}>
+          <h1 className="card-title" style={{ textAlign: 'center', fontSize: 30 }}>{item.title}</h1>
           <p className="card-text">{item.descrip}</p>
-		 <div>
-		 <button type="button" className="btn btn-outline-primary" onClick={() => { deleteFromWish(item.id) }}>Delete</button>
-		 <button type="button" className="btn btn-outline-primary" onClick={() => { addToReading(item) }}>Add to Reading List</button>
-         
-		 </div>
-		  
+          <div style={{ marginTop: 'auto' }}>
+            <button type="button" className="btn btn-outline-primary" onClick={() => { deleteFromWish(item.id) }}>Delete</button>
+            <button type="button" className="btn btn-outline-primary" onClick={() => { addToReading(item) }}>Add to Reading List</button>
+          </div>
         </div>
-        </div>
-        );
-     })}
-     </div>
+      </div>
+    );
+  })}
+</div>
         </>
     )
 }

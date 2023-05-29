@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateReading from './UpdateReading';
 import DeleteReading from './DeleteReading';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Reading() {
