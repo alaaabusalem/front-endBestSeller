@@ -73,7 +73,7 @@ export default function Reading() {
 					<div className="card border-primary mb-3 card" style={{ maxWidth: "20rem" }} key={item.id}>
 						<h5 className="card-header title text-color">{item.title}</h5>
 						<div className="card-body">
-							<img className="img" src={item.book_image} alt="book cover image"/>
+							<img className="img" src={item.book_image} alt="bookCoverImage"/>
 							<p className='author' >-- {item.author}</p>
 							<div className="continar ">
 								<p>Finshing Reading</p>
