@@ -1,12 +1,35 @@
 #h1 {
     text-align: center;
+    margin-top: 45px;
+    margin-bottom: 30px;
 }
 
 #p {
     margin-right: 100px;
     margin-left: 100px;
+    
 }
 
 #h4, h6{
     margin-left: 100px;
+}
+
+.cardTeam { 
+    display: flex;
+    justify-content: space-around;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+} 
+
+.cardBorder {
+    border: 3px solid rgb(94, 148, 153);
+    
+}
+
+#d {
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
