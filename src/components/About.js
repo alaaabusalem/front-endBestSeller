@@ -63,8 +63,7 @@ function About() {
                     <Card.Body>
                         <Card.Title className="text-warning">Ala' Abusalem</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                        Computer and Network Engineer, I have a big interest in learning ASP.NET.
                         </Card.Text>
                     </Card.Body>
                 </Card>
