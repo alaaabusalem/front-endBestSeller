@@ -23,7 +23,7 @@ function DeleteReading(props) {
     }
     return (
         <>
-            <Modal show={props.showFlagDelet} onHide={props.handleCloseFlagDelet} Key={props.item.id}>
+            <Modal show={props.showFlagDelet} onHide={props.handleCloseFlagDelet} Key={props.item.id} style={{background:"#000080"}}>
                 <Modal.Header closeButton className='delete-header'>
 
                 </Modal.Header>

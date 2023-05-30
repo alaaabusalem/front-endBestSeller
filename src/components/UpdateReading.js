@@ -7,7 +7,7 @@ import './Updating.css';
 function UpdateReading(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
-        [props.item.qout]=[`${e.target.qout.value}`];
+        [props.item.qouts]=[`${e.target.qout.value}`];
         if (e.target.finished.checked) { [props.item.finsh_reading] = [true] }
         else { [props.item.finsh_reading] = [false]; }
         if (e.target.recommend.checked) { [props.item.recommindation] = [true] }
@@ -29,7 +29,7 @@ function UpdateReading(props) {
     }
     return (
         <>
-            <Modal show={props.showUpdate} onHide={props.handleCloseUpdate} >
+            <Modal show={props.showUpdate} onHide={props.handleCloseUpdate} style={{background:"#000080"}}>
                 <Modal.Header closeButton className='header'>
                     <Modal.Title>{props.item.title}</Modal.Title>
 
@@ -41,7 +41,7 @@ function UpdateReading(props) {
                             <Form.Label>qout</Form.Label>
                             <Form.Control
                                 type="text"
-                                defaultValue={props.item.qout}
+                                defaultValue={props.item.qouts}
                                 name="qout"
                             />
                             {

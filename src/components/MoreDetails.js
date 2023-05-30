@@ -8,7 +8,7 @@ function MoreDetails(props) {
    
     return (
         <>
-            <Modal show={props.showDetails} onHide={props.handleCloseDetails} Key={props.item.id} className="details-main">
+            <Modal show={props.showDetails} onHide={props.handleCloseDetails} Key={props.item.id} className="details-main " style={{background:"#000080"}}>
                 <Modal.Header closeButton  className='details-header'>
                   
                 </Modal.Header>
