@@ -4,7 +4,7 @@ import UpdateReading from './UpdateReading';
 import DeleteReading from './DeleteReading';
 import { FaRegThumbsUp, FaRegThumbsDown} from "react-icons/fa";
 import { RiBookmarkFill } from "react-icons/ri";
-
+import MoreDetails from './MoreDetails';
 
 import './reading.css';
 //import { FaGrLike } from 'react-icons/fa';
@@ -15,6 +15,7 @@ export default function Reading() {
 	const [readinglist, setreadinglist] = useState([]);
 	const [showUpdate, setshowUpdate] = useState(false);
 	const [showFlagDelet, setshowFlagDelet] = useState(false);
+	const [showDetails, setshowDetails] = useState(false);
 	function handleshowUpdate(item) {
 		setshowUpdate(true);
          
@@ -33,8 +34,16 @@ export default function Reading() {
 	function handleCloseFlagDelet() {
 		setshowFlagDelet(false);
 	}
-
-	
+	//
+	function handleshowDetails(item) {
+		setshowDetails(true);
+         
+		 setObj(item);
+		 
+	}
+	function handleCloseDetails() {
+		setshowDetails(false);
+	}
 	function getTheList() {
 		const serverurl = `${process.env.REACT_APP_ServerURL}/readingnow`;
 		axios(serverurl)
@@ -62,11 +71,11 @@ export default function Reading() {
 				return (
 <>                     
 					<div className="card border-primary mb-3 card" style={{ maxWidth: "20rem" }} key={item.id}>
-						<div className="card-header title text-color">{item.title}</div>
+						<h5 className="card-header title text-color">{item.title}</h5>
 						<div className="card-body">
 							<img className="img" src={item.book_image} alt="book cover image"/>
-							
-							<div className="continar pad-top">
+							<p className='author' >-- {item.author}</p>
+							<div className="continar ">
 								<p>Finshing Reading</p>
 							{
 								item.finsh_reading ? <span className="text-color">Yes</span>
@@ -89,14 +98,7 @@ export default function Reading() {
 							<p >{item.book_mark}<span className="spanBookMark text-color"><RiBookmarkFill/></span></p>
 							
 							</div>
-							<div className="continar">
-							<p>Opinion</p>
-							{
-								item.opinion === null ? <p className='text-color'>No</p>
-									:
-									<div className='text-color'>{item.opinion}</div>
-							}
-                            </div>
+							<a href="#" className="continar color-blue" onClick={() => { handleshowDetails(item) }}>More Details</a>
 							<div className="continar btn-containar">
 							<button type="button" className="btn btn-outline-primary" onClick={() => { handleshowUpdate(item) }}>Update</button>
 							<button type="button" className="btn btn-outline-danger" onClick={() => { handleshowDelet(item) }}>Delete</button>
@@ -104,6 +106,7 @@ export default function Reading() {
 						</div>
 
 					</div>
+					<MoreDetails showDetails={showDetails} handleshowDetails={handleshowDetails} handleCloseDetails={handleCloseDetails} item={obj}/>
 					<UpdateReading showUpdate={showUpdate} handleshowUpdate={handleshowUpdate} handleCloseUpdate={handleCloseUpdate} item={obj} getTheList={getTheList}/>
 					<DeleteReading showFlagDelet={showFlagDelet} handleshowDelet={handleshowDelet} handleCloseFlagDelet={handleCloseFlagDelet} item={obj} getTheList={getTheList}/>
 					</>

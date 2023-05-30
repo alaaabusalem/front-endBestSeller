@@ -24,10 +24,10 @@ function DeleteReading(props) {
     return (
         <>
             <Modal show={props.showFlagDelet} onHide={props.handleCloseFlagDelet} Key={props.item.id}>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className='delete-header'>
 
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='delete-body'>
 
                     <Form onSubmit={handelSubmit}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
