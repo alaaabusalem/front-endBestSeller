@@ -7,26 +7,41 @@ import './Updating.css';
 function UpdateReading(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
-        [props.item.qouts]=[`${e.target.qout.value}`];
-        if (e.target.finished.checked) { [props.item.finsh_reading] = [true] }
-        else { [props.item.finsh_reading] = [false]; }
-        if (e.target.recommend.checked) { [props.item.recommindation] = [true] }
-        else { [props.item.recommindation] = [false]; }
-        [props.item.opinion] = [e.target.opinion.value];
-        [props.item.book_mark] = [e.target.Book_mark.value];
-        console.log(props.item);
+      
+        const updatedItem = { ...props.item, qouts: e.target.qouts.value };
+      
+        if (e.target.finished.checked) {
+          updatedItem.finsh_reading = true;
+        } else {
+          updatedItem.finsh_reading = false;
+        }
+      
+        if (e.target.recommend.checked) {
+          updatedItem.recommindation = true;
+        } else {
+          updatedItem.recommindation = false;
+        }
+      
+        updatedItem.opinion = e.target.opinion.value;
+        updatedItem.book_mark = e.target.Book_mark.value;
+        const bookMarkValue = e.target.Book_mark.value;
+        updatedItem.book_mark = bookMarkValue !== "" ? Number(bookMarkValue) : null;
+        console.log(updatedItem);
+      
         const serverURL = `${process.env.REACT_APP_ServerURL}/updatemodal`;
-        axios.put(serverURL, props.item)
-            .then(response => {
-                console.log("correct");
-                //console.log(response);
+        axios
+          .put(serverURL, updatedItem)
+          .then((response) => {
+            console.log("Correct");
             props.getTheList();
-            })
-            .catch((error) => {
-                console.log(error)
-            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      
         props.handleCloseUpdate();
-    }
+      };
+      
     return (
         <>
             <Modal show={props.showUpdate} onHide={props.handleCloseUpdate} style={{background:"#000080"}}>
@@ -42,7 +57,7 @@ function UpdateReading(props) {
                             <Form.Control
                                 type="text"
                                 defaultValue={props.item.qouts}
-                                name="qout"
+                                name="qouts"
                             />
                             {
 								props.item.finsh_reading ? <Form.Group className="mb-3" controlId="formBasicCheckbox">
