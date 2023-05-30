@@ -61,12 +61,13 @@ export default function Reading() {
 	useEffect(() => {
 		getTheList()
 	}, []);
+	let arr=[];
 
 	return (
 		<div className="card-continar" style={{ margin:50,display: 'flex', flexWrap: 'wrap', gap: '20px',justifyContent: 'center'}}>
 		<>
 		
-			{readinglist.map(item => {
+			{readinglist.sort((a, b) => a.id - b.id).map(item => {
                   
 				return (
 <>                     
@@ -83,14 +84,16 @@ export default function Reading() {
 
 							}
 							</div>
-							<div className="continar">
+							<div className="continar">	
 							<p >Recommend This Book?</p>
-							{
+							 {item.recommindation=== true && <span className="thumb text-color" style={{color:"#2e8b57"}}> <FaRegThumbsUp /></span>}
+							 {item.recommindation=== false && <span className="thumb text-color" style={{color:"#800000"}}> <FaRegThumbsDown /></span>	}
+							{/* {
 								item.recommindation ? <span className="thumb text-color"> <FaRegThumbsUp /></span>
                                :
-							   <span className="thumb text-color"> <FaRegThumbsDown /></span>	
+								<span className="thumb text-color"> <FaRegThumbsDown /></span>	
 
-							}
+							} */}
 							</div>
 							
 							<div className="continar">
@@ -107,7 +110,7 @@ export default function Reading() {
 
 					</div>
 					<MoreDetails showDetails={showDetails} handleshowDetails={handleshowDetails} handleCloseDetails={handleCloseDetails} item={obj}/>
-					<UpdateReading showUpdate={showUpdate} handleshowUpdate={handleshowUpdate} handleCloseUpdate={handleCloseUpdate} item={obj} getTheList={getTheList}/>
+					<UpdateReading showUpdate={showUpdate} handleshowUpdate={handleshowUpdate} readinglist={readinglist} setreadinglist={setreadinglist} handleCloseUpdate={handleCloseUpdate} item={obj} getTheList={getTheList}/>
 					<DeleteReading showFlagDelet={showFlagDelet} handleshowDelet={handleshowDelet} handleCloseFlagDelet={handleCloseFlagDelet} item={obj} getTheList={getTheList}/>
 					</>
 				);
